@@ -73,3 +73,13 @@ def test_add_multiple_books(book_name):
     collector = BooksCollector()
     collector.add_new_book(book_name)
     assert book_name in collector.get_books_genre()
+
+
+
+# 11. Проверка длины, больше 40 символов
+def test_add_new_book_does_not_add_if_name_too_long():
+    collector = BooksCollector()
+    long_title = "Очень длинное название книги, которое превышает 40 символов"
+    collector.add_new_book(long_title)
+    assert long_title not in collector.get_books_genre()
+
